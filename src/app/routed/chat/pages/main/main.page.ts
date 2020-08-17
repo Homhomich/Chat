@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.page.scss']
 })
 export class MainPage implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

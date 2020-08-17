@@ -8,17 +8,9 @@ import { FriendsPage } from './routed/chat/pages/friends/friends.page';
 import { ProfilePage } from './routed/chat/pages/profile/profile.page';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPage,
-    FriendsPage,
-    ProfilePage,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, MainPage, FriendsPage, ProfilePage],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
