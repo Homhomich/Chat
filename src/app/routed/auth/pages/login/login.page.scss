@@ -1,7 +1,7 @@
-.auth{
+.auth {
   width: 1100px;
   height: 650px;
-  background-color: #DBE3E5;
+  background-color: #dbe3e5;
   display: flex;
   position: absolute;
   left: 50%;
@@ -9,60 +9,47 @@
   transform: translate(-50%, -50%);
   font-size: 25px;
 
-
-  &__inset{
+  &__inset {
     margin: 10px 10px 10px 15px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 
-    &__button{
+    &__button {
       height: 40px;
-      &:hover{
+      &:hover {
         background-color: #bbc2c6;
         border-radius: 5px;
       }
 
-      &:active{
+      &:active {
         background-color: darken(#bbc2c6, 15%);
         opacity: 60%;
       }
     }
   }
 
-  &__content{
+  &__content {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 
-    input{
+    input {
       margin-bottom: 20px;
       height: 80px;
       width: 700px;
 
-      background-color:#E0ECE4 ;
+      background-color: #e0ece4;
       border: none;
     }
 
-    button{
-      background-color: #93B5E1;
+    button {
+      background-color: #93b5e1;
     }
   }
-
 }
 
-.clicked{
-  border-bottom: 5px solid #93B5E1 ;
+.clicked {
+  border-bottom: 5px solid #93b5e1;
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,12 +1,16 @@
 .chat {
   display: flex;
   flex-direction: column;
-  height: 94.5vh;
+  height: 91.5vh;
 }
 
 .toolbar {
   flex-grow: 1;
-  background-color: #93B5E1;
+  padding-left: 1%;
+  background-color: #27292d;
+  font-size: 35px;
+  color: white;
+  height: 25px;
 }
 
 .content {
@@ -17,19 +21,51 @@
 
   &__chats {
     flex-grow: 1;
-    background-color: #bbc2c6;
+    background-color: #1f2023;
 
+    &__chat {
+      margin: 3%;
+      padding: 5%;
+      background-color: #27292d;
+      border-radius: 10px;
+      color: white;
+    }
   }
 
   &__messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     flex-grow: 3;
-    background-color: deeppink;
+    background-color: #2d2f34;
+
+    &__input {
+      position: relative;
+      margin: 10px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #383b40;
+    }
   }
 
   &__friends {
     flex-grow: 1;
-    background-color: burlywood;
+    background-color: #1f2023;
+
+    &__friend {
+      margin: 3%;
+      padding: 5%;
+      background-color: #27292d;
+      border-radius: 10px;
+      color: white;
+
+      &__avatar {
+        vertical-align: middle;
+        width: 25px;
+        height: 25px;
+        margin-right: 3%;
+        border-radius: 50%;
+      }
+    }
   }
-
-
 }
