@@ -57,3 +57,50 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+:host {
+  margin: 0;
+}
+
+.topnav {
+  display: flex;
+  flex-direction: row;
+  background-color: #333;
+  overflow: hidden;
+  font-family: 'Calibri Light';
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 100px;
+}
+
+.topnav a:hover {
+  background-color: #383b40;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: #010101;
+  color: white;
+}
+
+.title {
+  padding: 5px 20px;
+  font-size: 30px;
+  color: white;
+}
