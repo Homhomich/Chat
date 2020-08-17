@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  color: #797A7E;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.button {
+  text-align: center;
+  opacity: 60%;
+  font-size: 25px;
+  padding: 10px 12px;
+  letter-spacing: 1px;
+  border: none;
+
+
+}
