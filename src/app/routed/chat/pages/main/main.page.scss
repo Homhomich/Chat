@@ -1,0 +1,35 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 94.5vh;
+}
+
+.toolbar {
+  flex-grow: 1;
+  background-color: #93B5E1;
+}
+
+.content {
+  flex-grow: 11;
+  display: flex;
+  flex-direction: row;
+  background-color: #383b40;
+
+  &__chats {
+    flex-grow: 1;
+    background-color: #bbc2c6;
+
+  }
+
+  &__messages {
+    flex-grow: 3;
+    background-color: deeppink;
+  }
+
+  &__friends {
+    flex-grow: 1;
+    background-color: burlywood;
+  }
+
+
+}
