@@ -1,7 +1,7 @@
 .chat {
   display: flex;
   flex-direction: column;
-  height: 88.5vh;
+  height: 90vh;
 }
 
 .toolbar {
@@ -17,7 +17,6 @@
   flex-grow: 11;
   display: flex;
   flex-direction: row;
-  background-color: #383b40;
 
   &__chats {
     flex-grow: 1;
@@ -82,14 +81,15 @@
 
     &__add {
       margin: 3%;
-      padding: 5%;
+      padding: 3%;
       background-color: #222831;
       border-radius: 10px;
       color: white;
       position: relative;
-      bottom: -60%;
+      bottom: -63%;
       text-align: center;
       font-size: large;
+      height: 50px;
     }
   }
 }

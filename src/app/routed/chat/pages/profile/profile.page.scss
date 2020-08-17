@@ -1,0 +1,103 @@
+body {
+  display: grid;
+  grid-template-areas:
+    'menu menu menu'
+    'chats messages friends'
+    'footer footer footer';
+  grid-template-rows: 60px 79vh 16vh;
+  grid-template-columns: 20% 1fr 20%;
+}
+.menu {
+  grid-area: menu;
+  padding: 10px;
+  text-align: center;
+  font-size: x-large;
+  background-color: #27292d;
+  color: #bbc2c6;
+}
+.chats {
+  grid-area: chats;
+  background-color: #1f2023;
+
+  &__chat {
+    margin: 5px;
+    padding: 10px;
+    background-color: #27292d;
+    border-radius: 10px;
+    color: #bbc2c6;
+  }
+
+  &__create {
+    margin: 5px;
+    padding: 10px;
+    background-color: #222831;
+    border-radius: 10px;
+    color: #bbc2c6;
+    text-align: center;
+    font-size: large;
+  }
+}
+.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: messages;
+  background-color: #2d2f34;
+
+  &__message {
+    margin: 5px 10px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #27292d;
+    color: #bbc2c6;
+  }
+
+  &__input {
+    margin: 10px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #383b40;
+  }
+}
+.friends {
+  grid-area: friends;
+  background-color: #1f2023;
+
+  &__friend {
+    margin: 5px;
+    padding: 10px;
+    background-color: #27292d;
+    border-radius: 10px;
+    color: #bbc2c6;
+
+    &__avatar {
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      margin-right: 3%;
+      border-radius: 50%;
+      font-size: 1.6em;
+    }
+  }
+
+  &__add {
+    margin: 5px;
+    padding: 10px;
+    background-color: #222831;
+    border-radius: 10px;
+    color: #bbc2c6;
+    text-align: center;
+    font-size: large;
+    height: 50px;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+  font-size: x-large;
+  padding-top: 2%;
+  background-color: #1f2023;
+  color: #bbc2c6;
+}
