@@ -5,7 +5,7 @@ body {
     'chats messages friends'
     'footer footer footer';
   grid-template-rows: 60px 79vh 16vh;
-  grid-template-columns: 20% 1fr 20%;
+  grid-template-columns: 20% 60% 20%;
 }
 .menu {
   grid-area: menu;
@@ -20,7 +20,7 @@ body {
   background-color: #1f2023;
 
   &__chat {
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
     background-color: #27292d;
     border-radius: 10px;
@@ -28,7 +28,7 @@ body {
   }
 
   &__create {
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
     background-color: #222831;
     border-radius: 10px;
@@ -65,7 +65,7 @@ body {
   background-color: #1f2023;
 
   &__friend {
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
     background-color: #27292d;
     border-radius: 10px;
@@ -82,7 +82,7 @@ body {
   }
 
   &__add {
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
     background-color: #222831;
     border-radius: 10px;
@@ -95,9 +95,67 @@ body {
 
 .footer {
   grid-area: footer;
+  width: 100vw;
   text-align: center;
   font-size: x-large;
   padding-top: 2%;
   background-color: #1f2023;
   color: #bbc2c6;
+}
+
+#hamburgerBtnChats {
+  position: absolute;
+  left: 20px;
+  display: none;
+}
+
+#hamburgerBtnChats:hover {
+  cursor: pointer;
+}
+
+#hamburgerBtnFriends {
+  position: absolute;
+  right: 20px;
+  display: none;
+}
+
+#hamburgerBtnFriends:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  #hamburgerBtnChats {
+    display: inline-block;
+  }
+
+  .chats {
+    width: 99vw;
+    transform: translateX(-1000px);
+    transition: transform 500ms;
+  }
+
+  #chats.open {
+    transform: translateX(0);
+    transition: transform 500ms;
+  }
+
+  .messages {
+    width: 98.7vw;
+    transform: translateX(-20%);
+  }
+
+  #hamburgerBtnFriends {
+    display: inline-block;
+  }
+
+  .friends {
+    width: 99vw;
+    transform: translateX(1000px);
+    transition: transform 500ms;
+  }
+
+  #friends.open {
+    transform: translateX(-80%);
+    transition: transform 500ms;
+  }
 }
