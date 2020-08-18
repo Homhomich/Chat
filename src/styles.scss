@@ -3,17 +3,31 @@
   padding: 0;
   list-style: none;
   outline: none;
-  color: #797A7E;
   font-family: 'Quicksand', sans-serif;
+  color: #fff;
 }
 
 .button {
   text-align: center;
   opacity: 60%;
-  font-size: 25px;
-  padding: 10px 12px;
+  font-size: 2vh;
+  padding: 10px;
   letter-spacing: 1px;
   border: none;
 
 
+}
+
+body{
+  background: #2d2f34;
+}
+
+.bs-datepicker-head button {
+  background: #bbc2c6 !important;
+  color: #383b40 !important;
+
+}
+
+.bs-datepicker-body table td span {
+  color: black;
 }
