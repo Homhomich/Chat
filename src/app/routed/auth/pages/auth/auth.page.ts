@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   templateUrl: './auth.page.html',
@@ -8,7 +8,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class AuthPage implements OnInit {
   public isLoginSide: boolean;
   public myForm?: FormGroup;
-
 
   constructor(private formBuilder: FormBuilder) {
     this.isLoginSide = true;
@@ -27,11 +26,9 @@ export class AuthPage implements OnInit {
       button.className += ' clicked';
     }
 
-
     const otherButton = document.getElementById(other);
     if (otherButton) {
       otherButton.className = otherButton.className.replace(' clicked', '');
     }
   }
-
 }

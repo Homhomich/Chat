@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {element} from 'protractor';
+import { Component } from '@angular/core';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,4 @@ import {element} from 'protractor';
 export class AppComponent {
   title = 'Chat';
   clicked = 'active';
-
-
 }

@@ -7,7 +7,7 @@ import { LoginComponent } from './routed/auth/components/login/login.component';
 const routes: Routes = [
   {
     path: '',
-    component: MainPage
+    loadChildren: () => import('./routed/main/main.module').then((m) => m.MainModule)
   },
   {
     path: 'auth',

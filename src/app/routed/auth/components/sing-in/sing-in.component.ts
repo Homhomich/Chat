@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {Gender, User} from '../../../../shared/models/user-model';
-
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Gender, User } from '../../../../shared/models/user-model';
 
 @Component({
   selector: 'app-sing-in',
@@ -12,23 +11,19 @@ export class SingInComponent implements OnInit {
   public signInForm?: FormGroup;
   public gender = Gender;
 
-
   constructor(private formBuilder: FormBuilder) {
     this.signInForm = this.formBuilder.group({
-      username: ['', /* Validators.required*/],
+      username: ['' /* Validators.required*/],
       password: ['', [Validators.required, forbiddenPasswordTypeValidator()]],
-      email: ['', /*Validators.required*/],
+      email: ['' /*Validators.required*/],
       phone: [''],
-      birthday: ['', /*Validators.required*/],
-      gender: ['', /*Validators.required*/],
+      birthday: ['' /*Validators.required*/],
+      gender: ['' /*Validators.required*/]
     });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
-
 
 export function forbiddenPasswordTypeValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -36,7 +31,6 @@ export function forbiddenPasswordTypeValidator(): ValidatorFn {
     const containsNumbers = /[0-9]/.test(control.value);
     console.log(lowerCase !== control.value);
     console.log(containsNumbers);
-    return lowerCase !== control.value && containsNumbers ? null : {forbiddenName: {value: control.value}};
+    return lowerCase !== control.value && containsNumbers ? null : { forbiddenName: { value: control.value } };
   };
-
 }

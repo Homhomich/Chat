@@ -1,6 +1,6 @@
-<div  [formGroup]="loginForm" class="login">
-  <input formControlName="username" class="log-input" type="text" name="login" placeholder="Логин">
-  <input formControlName="password" class="log-input" type="text" name="password" placeholder="Пароль">
+<div [formGroup]="loginForm" class="login">
+  <input formControlName="username" class="log-input" type="text" name="login" placeholder="Логин" />
+  <input formControlName="password" class="log-input" type="text" name="password" placeholder="Пароль" />
   <button (click)="buttonSubmit()" [disabled]="!loginForm?.valid" type="submit" class="button auth-button">
     Войти
   </button>

@@ -1,22 +1,15 @@
-
-
 <div class="auth">
   <div class="auth__inset">
     <p (click)="addClass('login', 'singIn')" id="login" class="button auth__inset__button clicked">
       Войти
     </p>
-    <p
-      (click)="addClass('singIn', 'login')"
-      id="singIn"
-      class="button auth__inset__button">Регистрация</p>
+    <p (click)="addClass('singIn', 'login')" id="singIn" class="button auth__inset__button">Регистрация</p>
   </div>
   <div *ngIf="isLoginSide" class="auth__login">
-  <app-login></app-login>
+    <app-login></app-login>
   </div>
 
   <div *ngIf="!isLoginSide" class="auth__sing-in">
     <app-sing-in></app-sing-in>
-
   </div>
-
 </div>

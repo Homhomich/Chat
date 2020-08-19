@@ -5,14 +5,12 @@
   justify-content: space-between;
   align-items: center;
 
-
   .log-input {
     margin-bottom: 20px;
     height: 6vh;
     width: 30vw;
     font-size: 2vh;
   }
-
 
   .auth-button {
     margin-top: 1vh;
@@ -25,7 +23,6 @@
 
     &:hover {
       background-color: #383737;
-
     }
 
     &:active {
@@ -36,11 +33,8 @@
       background-color: #c0c2c2;
       cursor: auto;
     }
-
-
   }
 }
-
 
 .clicked {
   border-bottom: 5px solid #787474;
@@ -53,10 +47,3 @@ input {
   border-radius: 5px;
   box-shadow: 2px 2px 5px #534f4f;
 }
-
-
-
-
-
-
-
