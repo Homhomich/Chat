@@ -1,0 +1,85 @@
+
+.sing-in {
+  display: inline-block;
+
+  .reg-input {
+    font-size: 1.5vh;
+    margin-top: 15px;
+    margin-left: 3vw;
+    width: 20vw;
+    height: 40px;
+  }
+
+  .data-picker {
+    background-color: #383b40;
+    color: #bbc2c6;
+    margin-left: 16vw;
+    margin-top: 10px;
+    font-size: 1.5vh;
+    width: 20vw;
+    height: 40px;
+
+
+  }
+
+  .reg-button {
+    margin-top: 10px;
+    margin-left: 16vw;
+    text-align: center;
+    width: 20vw;
+    height: 6vh;
+    background-color: #010101;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #383737;
+
+    }
+
+    &:active {
+      background-color: #242323;
+    }
+
+    &:disabled {
+      background-color: #c0c2c2;
+      cursor: auto;
+    }
+
+
+  }
+
+
+  .gender {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.5vh;
+    margin-top: 15px;
+    border-radius: 50px;
+
+    &__checkbox {
+      background-color: #93B5E1;
+      border-radius: 50px;
+      margin-right: 20px;
+
+      &:active {
+        background-color: #bbc2c6;
+      }
+    }
+  }
+
+
+}
+
+.clicked {
+  border-bottom: 5px solid #787474;
+}
+
+input {
+  background-color: #383b40;
+  border: none;
+  padding-left: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #534f4f;
+}

@@ -2,15 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainPage } from './routed/main/pages/main/main.page';
 import { ProfilePage } from './routed/profile/pages/profile/profile.page';
+import { LoginComponent } from './routed/auth/components/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainPage
-  },
-  {
-    path: 'profile',
-    component: ProfilePage
   },
   {
     path: 'auth',
