@@ -1,0 +1,36 @@
+<div [formGroup]="signInForm" class="sing-in">
+
+  <input class="reg-input" type="text" formControlName="username" placeholder="Логин">
+  <input class="reg-input" type="text" formControlName="password" placeholder="Пароль">
+  <input class="reg-input" type="tel" formControlName="phone" placeholder="Телефон">
+  <input class="reg-input" type="email" formControlName="email" placeholder="Email">
+
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <input
+      type="text"
+      formControlName="birthday"
+      placeholder="Дата рождения"
+      class="form-control data-picker"
+      bsDatepicker
+      [bsConfig]="{ isAnimated: true,
+              containerClass: 'default'}">
+  </div>
+
+  <div class="gender">
+
+    <label> Жен
+      <input  type="radio" formControlName="gender" [value]="gender.FEMALE" class="gender__checkbox">
+    </label>
+    <label> Муж
+      <input  type="radio" formControlName="gender"  [value]="gender.MALE" class="gender__checkbox">
+    </label>
+
+
+  </div>
+
+  <button [disabled]="!signInForm?.valid" class="button reg-button">
+    Войти
+  </button>
+
+
+</div>

@@ -12,7 +12,7 @@
 
   .data-picker {
     background-color: #383b40;
-    color: #383b40;
+    color: #bbc2c6;
     margin-left: 16vw;
     margin-top: 10px;
     font-size: 1.5vh;
@@ -23,7 +23,7 @@
   }
 
   .reg-button {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 16vw;
     text-align: center;
     width: 20vw;
@@ -31,6 +31,21 @@
     background-color: #010101;
     border-radius: 5px;
     cursor: pointer;
+
+    &:hover {
+      background-color: #383737;
+
+    }
+
+    &:active {
+      background-color: #242323;
+    }
+
+    &:disabled {
+      background-color: #c0c2c2;
+      cursor: auto;
+    }
+
 
   }
 

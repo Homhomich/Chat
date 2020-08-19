@@ -23,6 +23,21 @@
     border-radius: 5px;
     cursor: pointer;
 
+    &:hover {
+      background-color: #383737;
+
+    }
+
+    &:active {
+      background-color: #242323;
+    }
+
+    &:disabled {
+      background-color: #c0c2c2;
+      cursor: auto;
+    }
+
+
   }
 }
 
