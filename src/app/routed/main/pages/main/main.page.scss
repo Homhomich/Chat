@@ -2,9 +2,8 @@ body {
   display: grid;
   grid-template-areas:
     'menu menu menu'
-    'chats messages friends'
-    'footer footer footer';
-  grid-template-rows: 60px 79vh 16vh;
+    'chats messages friends';
+  grid-template-rows: 60px calc(100vh - 120px);
   grid-template-columns: 20% 60% 20%;
 }
 .menu {
@@ -54,10 +53,51 @@ body {
   }
 
   &__input {
+    display: flex;
+    flex-direction: row;
     margin: 10px;
+    padding-left: 10px;
     height: 40px;
     border-radius: 10px;
+    border-color: #1f2023;
     background-color: #383b40;
+    color: #bbc2c6;
+
+    &__text {
+      height: 40px;
+      background-color: #383b40;
+      border-radius: 10px;
+      border: none;
+      color: #bbc2c6;
+      width: 100%;
+    }
+
+    &__btn {
+      position: relative;
+      border-radius: 10px;
+      height: 33.5px;
+      width: 100px;
+      margin-right: 5px;
+      margin-top: 3px;
+      float: right;
+      background-color: #222831;
+      border: none;
+      color: #bbc2c6;
+      font-size: small;
+      cursor: pointer;
+    }
+
+    &__btn:hover {
+      background-color: #1f2023;
+    }
+
+    &__attach {
+      margin-right: 10px;
+      background-color: #383b40;
+      width: 25px;
+      padding-top: 8px;
+      cursor: pointer;
+    }
   }
 }
 .friends {
@@ -93,16 +133,6 @@ body {
   }
 }
 
-.footer {
-  grid-area: footer;
-  width: 100vw;
-  text-align: center;
-  font-size: x-large;
-  padding-top: 2%;
-  background-color: #1f2023;
-  color: #bbc2c6;
-}
-
 #hamburgerBtnChats {
   position: absolute;
   left: 20px;
@@ -129,12 +159,12 @@ body {
   }
 
   .chats {
-    width: 99vw;
     transform: translateX(-1000px);
     transition: transform 500ms;
   }
 
   #chats.open {
+    width: 99vw;
     transform: translateX(0);
     transition: transform 500ms;
   }
@@ -149,12 +179,13 @@ body {
   }
 
   .friends {
-    width: 99vw;
+    width: 0;
     transform: translateX(1000px);
     transition: transform 500ms;
   }
 
   #friends.open {
+    width: 99vw;
     transform: translateX(-80%);
     transition: transform 500ms;
   }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainPage } from './routed/chat/pages/main/main.page';
-import { ProfilePage } from './routed/chat/pages/profile/profile.page';
+import { MainPage } from './routed/main/pages/main/main.page';
+import { ProfilePage } from './routed/profile/pages/profile/profile.page';
 
 const routes: Routes = [
   {
@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./routed/auth/auth.module').then((m) => m.AuthModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./routed/profile/profile.module').then((m) => m.ProfileModule)
   }
 ];
 
