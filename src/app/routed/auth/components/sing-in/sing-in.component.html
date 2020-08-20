@@ -38,9 +38,6 @@ signInForm?.controls.email.errors; else password" class="errors">
     Поля со звездочкой должны быть заполнены
   </div>
 </ng-container>
-<div>
-  {{signInForm?.controls.password.errors}}
-</div>
 
 <ng-template #password >
   <div class="errors" *ngIf="signInForm?.controls.password.errors">

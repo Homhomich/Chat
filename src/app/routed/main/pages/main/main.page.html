@@ -4,48 +4,12 @@
     <span id="hamburgerBtnFriends"><i class="fa fa-fw fa-users w3-xxlarge"></i></span>
   </div>
   <div class="messages">
-    <div class="messages__message">
-      <img
-        src="https://cdn2.relax-fm.ru/proxy/vardata/modules/news/files/1/152/news_file_152_5c57ef93e624f.jpg?w=1020&h=680&t=1549266835"
-        alt="Avatar"
-        class="friends__friend__avatar"
-      />Сообщение1
-    </div>
-    <div class="messages__message">
-      <img
-        src="https://ethnomir.ru/upload/medialibrary/1a4/pustynya_sahara_2.jpg"
-        alt="Avatar"
-        class="friends__friend__avatar"
-      />Сообщение2
-    </div>
-    <div class="messages__input">
-      <i class="fa fa-fw fa-plus-circle w3-xlarge messages__input__attach"></i>
-      <input class="messages__input__text" placeholder="Введите сообщение" /><button class="messages__input__btn">
-        Отправить
-      </button>
-    </div>
+    <app-messages></app-messages>
   </div>
   <div class="chats" id="chats">
-    <div class="chats__create">Создать чат</div>
-    <div class="chats__chat">Чат о работе</div>
-    <div class="chats__chat">Чат об отдыхе (выбран)</div>
-    <div class="chats__chat">Чат обо всём</div>
+    <app-chats></app-chats>
   </div>
   <div class="friends" id="friends">
-    <div class="friends__add">Добавить друга</div>
-    <div class="friends__friend">
-      <img
-        src="https://ethnomir.ru/upload/medialibrary/1a4/pustynya_sahara_2.jpg"
-        alt="Avatar"
-        class="friends__friend__avatar"
-      />Колесников Владислав
-    </div>
-    <div class="friends__friend">
-      <img
-        src="https://cdn2.relax-fm.ru/proxy/vardata/modules/news/files/1/152/news_file_152_5c57ef93e624f.jpg?w=1020&h=680&t=1549266835"
-        alt="Avatar"
-        class="friends__friend__avatar"
-      />Янкевич Анна
-    </div>
+   <app-friends></app-friends>
   </div>
 </body>

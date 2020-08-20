@@ -30,8 +30,6 @@ export function forbiddenPasswordTypeValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     const lowerCase = control.value.toLowerCase();
     const containsNumbers = /[0-9]/.test(control.value);
-    console.log(lowerCase !== control.value);
-    console.log(containsNumbers);
     return lowerCase !== control.value && containsNumbers ? null : {forbiddenName: {value: control.value}};
   };
 }
