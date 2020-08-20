@@ -10,7 +10,7 @@ export class AuthPage implements OnInit {
   public myForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.isLoginSide = true;
+    this.isLoginSide = !true;
   }
 
   ngOnInit(): void {

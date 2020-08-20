@@ -1,14 +1,14 @@
 <div [formGroup]="signInForm" class="sing-in">
-  <input class="reg-input" type="text" formControlName="username" placeholder="Логин" />
-  <input class="reg-input" type="text" formControlName="password" placeholder="Пароль" />
-  <input class="reg-input" type="tel" formControlName="phone" placeholder="Телефон" />
-  <input class="reg-input" type="email" formControlName="email" placeholder="Email" />
+  <input class="reg-input" type="text" formControlName="username" placeholder="Логин*"/>
+  <input class="reg-input" type="text" formControlName="password" placeholder="Пароль*"/>
+  <input class="reg-input" type="tel" formControlName="phone" placeholder="Телефон"/>
+  <input class="reg-input" type="email" formControlName="email" placeholder="Email*"/>
 
   <div class="col-xs-12 col-12 col-md-4 form-group">
     <input
       type="text"
       formControlName="birthday"
-      placeholder="Дата рождения"
+      placeholder="Дата рождения*"
       class="form-control data-picker"
       bsDatepicker
       [bsConfig]="{ isAnimated: true, containerClass: 'default' }"
@@ -18,11 +18,11 @@
   <div class="gender">
     <label>
       Жен
-      <input type="radio" formControlName="gender" [value]="gender.FEMALE" class="gender__checkbox" />
+      <input type="radio" formControlName="gender" [value]="gender.FEMALE" class="gender__checkbox"/>
     </label>
     <label>
       Муж
-      <input type="radio" formControlName="gender" [value]="gender.MALE" class="gender__checkbox" />
+      <input type="radio" formControlName="gender" [value]="gender.MALE" class="gender__checkbox"/>
     </label>
   </div>
 
@@ -30,3 +30,20 @@
     Войти
   </button>
 </div>
+<ng-container *ngIf="signInForm?.controls.username.errors ||
+signInForm?.controls.gender.errors ||
+signInForm?.controls.birthday.errors ||
+signInForm?.controls.email.errors; else password" class="errors">
+  <div class="errors">
+    Поля со звездочкой должны быть заполнены
+  </div>
+</ng-container>
+<div>
+  {{signInForm?.controls.password.errors}}
+</div>
+
+<ng-template #password >
+  <div class="errors" *ngIf="signInForm?.controls.password.errors">
+    Пароль должен содержать заглавные буквы и числа.
+  </div>
+</ng-template>

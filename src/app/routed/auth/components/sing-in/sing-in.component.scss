@@ -6,7 +6,7 @@
     margin-top: 15px;
     margin-left: 3vw;
     width: 20vw;
-    height: 40px;
+    height: 5vh;
   }
 
   .data-picker {
@@ -16,11 +16,12 @@
     margin-top: 10px;
     font-size: 1.5vh;
     width: 20vw;
-    height: 40px;
+    height: 5vh;
   }
 
   .reg-button {
-    margin-top: 10px;
+    position: absolute;
+    top: 85%;
     margin-left: 16vw;
     text-align: center;
     width: 20vw;
@@ -48,7 +49,7 @@
     flex-direction: row;
     justify-content: center;
     font-size: 1.5vh;
-    margin-top: 15px;
+    margin-top: 3vh;
     border-radius: 50px;
 
     &__checkbox {
@@ -73,4 +74,14 @@ input {
   padding-left: 5px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #534f4f;
+}
+
+.errors{
+  font-size: 1.5vh;
+  width: 100%;
+  position: absolute;
+  top: 75%;
+  border: 2px solid indianred;
+  text-align: center;
+  color: white;
 }
