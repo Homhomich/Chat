@@ -1,4 +1,4 @@
-<div [formGroup]="signInForm" class="sing-in">
+<form #form="ngForm" [formGroup]="signInForm" class="sing-in">
   <input class="reg-input" type="text" formControlName="username" placeholder="Логин*"/>
   <input class="reg-input" type="text" formControlName="password" placeholder="Пароль*"/>
   <input class="reg-input" type="tel" formControlName="phone" placeholder="Телефон"/>
@@ -26,10 +26,10 @@
     </label>
   </div>
 
-  <button [disabled]="!signInForm?.valid" class="button reg-button">
-    Войти
+  <button (click)="handleRegisterClick(form.value)" [disabled]="!signInForm?.valid" class="button reg-button">
+    Зарегистрировться
   </button>
-</div>
+</form>
 <ng-container *ngIf="signInForm?.controls.username.errors ||
 signInForm?.controls.gender.errors ||
 signInForm?.controls.birthday.errors ||
@@ -44,3 +44,7 @@ signInForm?.controls.email.errors; else password" class="errors">
     Пароль должен содержать заглавные буквы и числа.
   </div>
 </ng-template>
+
+<div class="errors" *ngIf="error === true">
+  Ошибка регистрации.
+</div>

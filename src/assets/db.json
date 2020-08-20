@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "username": "anna",
-      "password": "1234",
+      "username": "login1",
+      "password": "pass1",
       "email": "email",
       "phone": "1111111",
       "gender": "FEMALE",
@@ -11,8 +11,8 @@
     },
     {
       "id": 2,
-      "username": "anna",
-      "password": "1234",
+      "username": "login2",
+      "password": "pass2",
       "email": "email",
       "phone": "1111111",
       "gender": "FEMALE",
@@ -20,12 +20,21 @@
     },
     {
       "id": 3,
-      "username": "anna",
-      "password": "1234",
+      "username": "login3",
+      "password": "pass3",
       "email": "email",
       "phone": "1111111",
       "gender": "FEMALE",
       "birthday": "11/11/11"
+    },
+    {
+      "username": "login4",
+      "password": "Pass4",
+      "email": "island@gmail.com",
+      "phone": "31532708941",
+      "birthday": "2020-08-03T20:26:14.000Z",
+      "gender": "MALE",
+      "id": 4
     }
   ],
   "chats": [
@@ -86,7 +95,7 @@
       "friend_id": 1
     }
   ],
-  "chats_users": [
+  "chats-users": [
     {
       "chat_id": 1,
       "user_id": 1
