@@ -47,3 +47,13 @@ input {
   border-radius: 5px;
   box-shadow: 2px 2px 5px #534f4f;
 }
+
+.errors{
+  font-size: 1.5vh;
+  width: 100%;
+  position: absolute;
+  top: 75%;
+  border: 2px solid indianred;
+  text-align: center;
+  color: white;
+}

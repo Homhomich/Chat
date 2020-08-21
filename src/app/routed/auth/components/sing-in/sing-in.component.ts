@@ -1,6 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {Gender, User} from '../../../../shared/models/user-model';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Gender, User } from '../../../../shared/models/user-model';
+import { UsersApiService } from '../../../../features/users/services/users-api.service';
+
+interface RegisterFormData {
+  username: string;
+  password: string;
+  phone: string;
+  email: string;
+  birthday: string;
+  gender: string;
+}
 
 @Component({
   selector: 'app-sing-in',
@@ -11,7 +21,9 @@ export class SingInComponent implements OnInit {
   public signInForm?: FormGroup;
   public gender = Gender;
 
-  constructor(private formBuilder: FormBuilder) {
+  error = false;
+
+  constructor(private formBuilder: FormBuilder, private readonly usersApiService: UsersApiService) {
     this.signInForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, forbiddenPasswordTypeValidator()]],
@@ -22,14 +34,27 @@ export class SingInComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  handleRegisterClick(value: User): void {
+    this.usersApiService.createUser(value).subscribe(
+      () => {
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error', error);
+        this.error = true;
+      }
+    );
   }
 }
 
 export function forbiddenPasswordTypeValidator(): ValidatorFn {
+  // tslint:disable-next-line:no-any
   return (control: AbstractControl): { [key: string]: any } | null => {
     const lowerCase = control.value.toLowerCase();
     const containsNumbers = /[0-9]/.test(control.value);
-    return lowerCase !== control.value && containsNumbers ? null : {forbiddenName: {value: control.value}};
+    // tslint:disable-next-line:no-null-keyword
+    return lowerCase !== control.value && containsNumbers ? null : { forbiddenName: { value: control.value } };
   };
 }

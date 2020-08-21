@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './auth.page.html',
@@ -9,14 +10,18 @@ export class AuthPage implements OnInit {
   public isLoginSide: boolean;
   public myForm?: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.isLoginSide = !true;
+  constructor(private formBuilder: FormBuilder, private readonly router: Router) {
+    this.isLoginSide = true;
   }
 
   ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      radio: 'female'
-    });
+    if (localStorage.length > 0) {
+      this.router.navigate(['/']);
+    } else {
+      this.myForm = this.formBuilder.group({
+        radio: 'female'
+      });
+    }
   }
 
   addClass(id: string, other: string): void {
