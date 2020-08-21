@@ -7,12 +7,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { ChatsComponent } from './components/chats/chats.component';
 
 @NgModule({
-    declarations: [FriendsComponent, MessagesComponent, ChatsComponent],
-  exports: [
-    FriendsComponent,
-    MessagesComponent,
-    ChatsComponent
-  ],
-    imports: [CommonModule, MainRoutingModule]
+  declarations: [FriendsComponent, MessagesComponent, ChatsComponent],
+  exports: [FriendsComponent, MessagesComponent, ChatsComponent],
+  imports: [CommonModule, MainRoutingModule]
 })
 export class MainModule {}

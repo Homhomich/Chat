@@ -7,9 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersApiService {
-
-  constructor(private readonly http: HttpClient) {
-  }
+  constructor(private readonly http: HttpClient) {}
 
   public getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:3000/users`);

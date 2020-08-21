@@ -19,10 +19,7 @@ export class LoginComponent implements OnInit {
 
   error = false;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private readonly usersApiService: UsersApiService
-  ) {
+  constructor(private formBuilder: FormBuilder, private readonly usersApiService: UsersApiService) {
     this.isLoginSide = true;
   }
 
