@@ -6,7 +6,18 @@
     border-radius: 10px;
     color: #bbc2c6;
     cursor: pointer;
+
+    &:hover {
+      background-color: #57575a;
+    }
+
+    &:active {
+      background-color: #393b3e;
+    }
+
+
   }
+
 
   &__create {
     margin: 10px;
@@ -17,4 +28,13 @@
     text-align: center;
     font-size: large;
   }
+}
+
+.active {
+  background-color: #a19e9e;
+}
+
+.clicked {
+  background-color: #4e4e52;
+  box-shadow: 0 1px  5px #726f6f;
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Chat} from '../../../../shared/models/chat-model';
 
 @Component({
   templateUrl: './main.page.html',
@@ -12,6 +13,7 @@ export class MainPage implements OnInit {
   private friends: HTMLElement | null | undefined;
 
   public selectedChatId?: number;
+  public selectedChat?: Chat;
 
 
   constructor(private readonly router: Router) {
@@ -35,8 +37,9 @@ export class MainPage implements OnInit {
     }
   }
 
-  setSelectedChatId(chatId: number): void {
-    console.log(chatId);
-    this.selectedChatId = chatId;
+  setSelectedChatId(chat: Chat): void {
+    console.log(chat.id);
+    this.selectedChatId = chat.id;
+    this.selectedChat = chat;
   }
 }

@@ -12,8 +12,9 @@ import {Router} from '@angular/router';
 export class ChatsComponent implements OnInit {
   chats?: Chat[];
   currentUserId?: number;
+  selectedChatId?: number;
 
-  @Output() setSelectedChat = new EventEmitter<number>();
+  @Output() setSelectedChat = new EventEmitter<Chat>();
 
   constructor(private chatService: ChatService, private readonly router: Router) {
   }
@@ -23,8 +24,24 @@ export class ChatsComponent implements OnInit {
     this.getChats();
   }
 
-  selectChat(id: number): void {
-    this.setSelectedChat.emit(id);
+  selectChat(chat: Chat): void {
+    this.setActive(String(chat.id), String(this.selectedChatId));
+    this.setSelectedChat.emit(chat);
+    this.selectedChatId = chat.id;
+  }
+
+
+  setActive(newId: string, oldId: string): void {
+    const oldChat = document.getElementById(oldId);
+    if (oldChat) {
+      oldChat.className = oldChat.className.replace(' clicked', '');
+    }
+
+    const newChat = document.getElementById(newId);
+
+    if (newChat) {
+      newChat.className += ' clicked';
+    }
   }
 
 
@@ -33,7 +50,6 @@ export class ChatsComponent implements OnInit {
       this.router.navigate(['/auth']);
     } else {
       this.currentUserId = Number(localStorage.getItem('id'));
-      console.log(Number(localStorage.getItem('id')));
     }
   }
 
@@ -41,14 +57,12 @@ export class ChatsComponent implements OnInit {
     let requestStr = '';
     if (this.currentUserId) {
       this.chatService.getUserChatsByUserId(this.currentUserId).subscribe(userChats => {
-        console.log(userChats);
         for (const userChat of userChats) {
           if (userChat) {
             requestStr += 'id=' + userChat.chat_id.toString() + '&';
           }
         }
         this.chatService.getChatsByUserId(requestStr).subscribe(chats => {
-          console.log(chats);
           this.chats = chats;
         });
 

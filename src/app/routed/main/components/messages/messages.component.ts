@@ -39,7 +39,6 @@ export class MessagesComponent implements OnInit, OnChanges {
     if (this.selectedChat) {
       this.messagesService.getMessagesByChatId(this.selectedChat).subscribe(messages => {
         this.messages = messages;
-        console.log(messages);
         this.getChatMembers();
       });
     }
