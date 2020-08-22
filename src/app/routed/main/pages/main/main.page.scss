@@ -6,6 +6,7 @@ body {
   grid-template-rows: 60px calc(100vh - 120px);
   grid-template-columns: 20% 60% 20%;
 }
+
 .menu {
   grid-area: menu;
   padding: 10px;
@@ -14,17 +15,16 @@ body {
   background-color: #27292d;
   color: #bbc2c6;
 }
+
 .chats {
   grid-area: chats;
   background-color: #1f2023;
 }
+
 .messages {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   grid-area: messages;
-  background-color: #2d2f34;
 }
+
 .friends {
   grid-area: friends;
   background-color: #1f2023;

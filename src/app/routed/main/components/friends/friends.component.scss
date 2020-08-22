@@ -1,10 +1,26 @@
 .friends {
+  &__title {
+    padding: 10px;
+    text-align: center;
+    background-color: #27292d;
+    color: #bbc2c6;
+  }
+
   &__friend {
     margin: 10px;
     padding: 10px;
     background-color: #27292d;
     border-radius: 10px;
     color: #bbc2c6;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #57575a;
+    }
+
+    &:active{
+      background-color: #393b3e;
+    }
 
     &__avatar {
       vertical-align: middle;

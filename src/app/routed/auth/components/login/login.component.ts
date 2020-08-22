@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   handleLoginClick(value: LoginFormData): void {
     this.usersApiService.getUserByUsernameAndPassword(value.username, value.password).subscribe((userResult) => {
       if (userResult.length === 1) {
+        localStorage.setItem('id', String(userResult[0].id));
         localStorage.setItem('username', userResult[0].username);
         localStorage.setItem('gender', userResult[0].gender);
         localStorage.setItem('birthday', userResult[0].birthday);

@@ -1,6 +1,8 @@
 <div class="chats" id="chats">
   <div class="chats__create">Создать чат</div>
-  <div class="chats__chat">Чат о работе</div>
-  <div class="chats__chat">Чат об отдыхе (выбран)</div>
-  <div class="chats__chat">Чат обо всём</div>
+  <div *ngIf="chats">
+    <div  *ngFor="let chat of chats">
+      <div [id]="chat.id" (click)="selectChat(chat)" class="chats__chat">{{chat.name}}</div>
+    </div>
+  </div>
 </div>

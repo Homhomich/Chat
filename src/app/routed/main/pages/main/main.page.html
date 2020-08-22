@@ -1,15 +1,16 @@
 <body>
   <div class="menu">
-    <span id="hamburgerBtnChats">&#9776;</span>Чат об отдыхе
+    <span id="hamburgerBtnChats">&#9776;</span>{{selectedChat && selectedChat.name}}
     <span id="hamburgerBtnFriends"><i class="fa fa-fw fa-users w3-xxlarge"></i></span>
   </div>
   <div class="messages">
-    <app-messages></app-messages>
+    <app-messages [selectedChat]="selectedChatId"> </app-messages>
   </div>
   <div class="chats" id="chats">
-    <app-chats></app-chats>
+    <app-chats (setSelectedChat)="setSelectedChatId($event)"></app-chats>
   </div>
   <div class="friends" id="friends">
-    <app-friends></app-friends>
+   <app-friends [selectedChat]="selectedChatId"></app-friends>
   </div>
+
 </body>
