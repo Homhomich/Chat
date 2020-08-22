@@ -1,22 +1,27 @@
 <div class="messages">
-  <div class="messages__message">
-    <img
-      src="https://cdn2.relax-fm.ru/proxy/vardata/modules/news/files/1/152/news_file_152_5c57ef93e624f.jpg?w=1020&h=680&t=1549266835"
-      alt="Avatar"
-      class="friends__friend__avatar"
-    />Сообщение1
+
+  <div *ngIf="!selectedChat">Выберите чат</div>
+  <div *ngIf="selectedChat">
+    <div *ngFor="let message of messages">
+      <div class="messages__message">
+        <div class="user-name">
+          {{getUserName(message.user_id)}}
+        </div>
+        <img
+          src="https://ethnomir.ru/upload/medialibrary/1a4/pustynya_sahara_2.jpg"
+          alt="Avatar"
+          class="friends__friend__avatar"
+        />{{message.text}}
+      </div>
+    </div>
+    <div class="messages__input">
+      <i class="fa fa-fw fa-plus-circle w3-xlarge messages__input__attach"></i>
+      <input class="messages__input__text" placeholder="Введите сообщение"/>
+      <button class="messages__input__btn">
+        Отправить
+      </button>
+    </div>
   </div>
-  <div class="messages__message">
-    <img
-      src="https://ethnomir.ru/upload/medialibrary/1a4/pustynya_sahara_2.jpg"
-      alt="Avatar"
-      class="friends__friend__avatar"
-    />Сообщение2
-  </div>
-  <div class="messages__input">
-    <i class="fa fa-fw fa-plus-circle w3-xlarge messages__input__attach"></i>
-    <input class="messages__input__text" placeholder="Введите сообщение" /><button class="messages__input__btn">
-    Отправить
-  </button>
-  </div>
+
+
 </div>

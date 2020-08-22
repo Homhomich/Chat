@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   templateUrl: './main.page.html',
@@ -10,7 +10,13 @@ export class MainPage implements OnInit {
   private chats: HTMLElement | null | undefined;
   private hamburgerBtnFriends: HTMLElement | null | undefined;
   private friends: HTMLElement | null | undefined;
-  constructor(private readonly router: Router) {}
+
+  public selectedChatId?: number;
+
+
+  constructor(private readonly router: Router) {
+  }
+
 
   ngOnInit(): void {
     if (localStorage.getItem('isAuthorized') !== 'true') {
@@ -27,5 +33,10 @@ export class MainPage implements OnInit {
         this.friends?.classList.toggle('open');
       });
     }
+  }
+
+  setSelectedChatId(chatId: number): void {
+    console.log(chatId);
+    this.selectedChatId = chatId;
   }
 }

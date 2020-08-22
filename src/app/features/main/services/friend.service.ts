@@ -14,11 +14,12 @@ export class FriendService {
   constructor(private http: HttpClient) { }
 
 
-  getFriends(requestWithId: string): Observable<User[]> {
+  getUsers(requestWithId: string): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/users?' + requestWithId);
   }
 
   getFriendsByUserId(id: number): Observable<Friend[]> {
     return this.http.get<Friend[]>(`http://localhost:3000/friends?user_id=${id}`);
   }
+
 }
