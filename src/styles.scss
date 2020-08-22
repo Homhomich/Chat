@@ -29,3 +29,19 @@ body {
 .bs-datepicker-body table td span {
   color: black;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #383b40;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -3,15 +3,6 @@ import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from
 import { Gender, User } from '../../../../shared/models/user-model';
 import { UsersApiService } from '../../../../features/users/services/users-api.service';
 
-interface RegisterFormData {
-  username: string;
-  password: string;
-  phone: string;
-  email: string;
-  birthday: string;
-  gender: string;
-}
-
 @Component({
   selector: 'app-sing-in',
   templateUrl: './sing-in.component.html',

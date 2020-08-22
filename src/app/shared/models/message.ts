@@ -1,7 +1,10 @@
-export interface Message {
-  id: number;
-  chat_id: number;
+export interface InputMessage {
+  chat_id: number | undefined;
   user_id: number;
   text: string;
-  created_at: number;
+  created_at: string;
+}
+
+export interface Message extends InputMessage{
+  id: number;
 }
