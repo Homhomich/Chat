@@ -5,6 +5,6 @@ export interface InputMessage {
   created_at: string;
 }
 
-export interface Message extends InputMessage{
+export interface Message extends InputMessage {
   id: number;
 }

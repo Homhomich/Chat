@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Chat} from '../../../../shared/models/chat-model';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Chat } from '../../../../shared/models/chat-model';
 
 @Component({
   templateUrl: './main.page.html',
@@ -15,10 +15,7 @@ export class MainPage implements OnInit {
   public selectedChatId?: number;
   public selectedChat?: Chat;
 
-
-  constructor(private readonly router: Router) {
-  }
-
+  constructor(private readonly router: Router) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('isAuthorized') !== 'true') {

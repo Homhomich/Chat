@@ -93,6 +93,34 @@
       "text": "fscanf",
       "created_at": "24/08/2020 11:15:11",
       "id": 6
+    },
+    {
+      "chat_id": 2,
+      "user_id": 1,
+      "text": "ASASA",
+      "created_at": "24/08/2020 12:33:05",
+      "id": 7
+    },
+    {
+      "chat_id": 2,
+      "user_id": 1,
+      "text": "sdfsdf",
+      "created_at": "24/08/2020 12:39:10",
+      "id": 8
+    },
+    {
+      "chat_id": 2,
+      "user_id": 1,
+      "text": "asdasd",
+      "created_at": "24/08/2020 12:39:24",
+      "id": 9
+    },
+    {
+      "chat_id": 2,
+      "user_id": 1,
+      "text": "qwe",
+      "created_at": "24/08/2020 12:42:34",
+      "id": 10
     }
   ],
   "friends": [

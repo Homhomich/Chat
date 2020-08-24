@@ -3,9 +3,11 @@
 <div *ngIf="friends" class="friends__add">Добавить друга</div>
 <div *ngFor="let friend of friends">
   <div class="friends__friend">
-    <img src="https://ethnomir.ru/upload/medialibrary/1a4/pustynya_sahara_2.jpg"
+    <img
+      src="https://ethnomir.ru/upload/medialibrary/1a4/pustynya_sahara_2.jpg"
       alt="Avatar"
-      class="friends__friend__avatar"/>
-    {{friend.username}}
+      class="friends__friend__avatar"
+    />
+    {{ friend.username }}
   </div>
 </div>

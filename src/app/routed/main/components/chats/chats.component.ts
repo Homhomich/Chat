@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Chat} from '../../../../shared/models/chat-model';
-import {ChatService} from '../../../../features/main/services/chat.service';
-import {UsersApiService} from '../../../../features/users/services/users-api.service';
-import {Router} from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Chat } from '../../../../shared/models/chat-model';
+import { ChatService } from '../../../../features/main/services/chat.service';
+import { UsersApiService } from '../../../../features/users/services/users-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chats',
@@ -16,8 +16,7 @@ export class ChatsComponent implements OnInit {
 
   @Output() setSelectedChat = new EventEmitter<Chat>();
 
-  constructor(private chatService: ChatService, private readonly router: Router) {
-  }
+  constructor(private chatService: ChatService, private readonly router: Router) {}
 
   ngOnInit(): void {
     this.setCurrentUser();
@@ -29,7 +28,6 @@ export class ChatsComponent implements OnInit {
     this.setSelectedChat.emit(chat);
     this.selectedChatId = chat.id;
   }
-
 
   setActive(newId: string, oldId: string): void {
     const oldChat = document.getElementById(oldId);
@@ -44,7 +42,6 @@ export class ChatsComponent implements OnInit {
     }
   }
 
-
   setCurrentUser(): void {
     if (localStorage.getItem('isAuthorized') !== 'true') {
       this.router.navigate(['/auth']);
@@ -56,17 +53,15 @@ export class ChatsComponent implements OnInit {
   getChats(): void {
     let requestStr = '';
     if (this.currentUserId) {
-      this.chatService.getUserChatsByUserId(this.currentUserId).subscribe(userChats => {
+      this.chatService.getUserChatsByUserId(this.currentUserId).subscribe((userChats) => {
         for (const userChat of userChats) {
           if (userChat) {
             requestStr += 'id=' + userChat.chat_id.toString() + '&';
           }
         }
-        this.chatService.getChatsByUserId(requestStr).subscribe(chats => {
+        this.chatService.getChatsByUserId(requestStr).subscribe((chats) => {
           this.chats = chats;
         });
-
-
       });
     }
   }

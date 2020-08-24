@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, AfterContentInit } from '@angular/core';
-import {MessagesService} from '../../../../features/main/services/messages.service';
-import {Message} from '../../../../shared/models/message';
-import {UsersApiService} from '../../../../features/users/services/users-api.service';
-import {User} from '../../../../shared/models/user-model';
-import {FriendService} from '../../../../features/main/services/friend.service';
-import {ChatService} from '../../../../features/main/services/chat.service';
+import { MessagesService } from '../../../../features/main/services/messages.service';
+import { Message } from '../../../../shared/models/message';
+import { UsersApiService } from '../../../../features/users/services/users-api.service';
+import { User } from '../../../../shared/models/user-model';
+import { FriendService } from '../../../../features/main/services/friend.service';
+import { ChatService } from '../../../../features/main/services/chat.service';
 
 interface MessageFormData {
   text: string;
@@ -16,7 +16,6 @@ interface MessageFormData {
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
-
   messages?: Message[];
   users?: User[];
 
@@ -24,13 +23,12 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
 
   private messagesDiv = document.getElementById('messagesDiv');
 
-
-  constructor(private messagesService: MessagesService,
-              private userService: UsersApiService,
-              private friendService: FriendService,
-              private chatService: ChatService,
-              ) {
-  }
+  constructor(
+    private messagesService: MessagesService,
+    private userService: UsersApiService,
+    private friendService: FriendService,
+    private chatService: ChatService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.messagesDiv = document.getElementById('messagesDiv');
@@ -39,17 +37,16 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     // @ts-ignore
-    this.messagesDiv.scrollTo(0, this.messagesDiv.scrollHeight);
+    // this.messagesDiv.scrollTo(0, this.messagesDiv.scrollHeight);
   }
 
   getMessages(): void {
     if (this.selectedChat) {
-      this.messagesService.getMessagesByChatId(this.selectedChat).subscribe(messages => {
+      this.messagesService.getMessagesByChatId(this.selectedChat).subscribe((messages) => {
         this.messages = messages;
         this.messagesDiv = document.getElementById('messagesDiv');
         console.log('messagesDiv', this.messagesDiv);
@@ -58,7 +55,7 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
         // @ts-ignore
         console.log('scroll 1', this.messagesDiv.scrollTop);
         // @ts-ignore
-        this.messagesDiv.scrollTo(0, this.messagesDiv.scrollHeight);
+        this.messagesDiv.scrollTop = this.messagesDiv.scrollHeight;
         // @ts-ignore
         console.log('scroll 2 height', this.messagesDiv.scrollHeight);
         // @ts-ignore
@@ -68,26 +65,25 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
     }
   }
 
-
   getChatMembers(): void {
     let requestStr = '';
 
     if (this.selectedChat) {
-      this.chatService.getChatMembers(this.selectedChat).subscribe(chatMembers => {
+      this.chatService.getChatMembers(this.selectedChat).subscribe((chatMembers) => {
         for (const member of chatMembers) {
           if (member) {
             requestStr += 'id=' + member.user_id.toString() + '&';
           }
         }
-        this.friendService.getUsers(requestStr).subscribe(users => {
+        this.friendService.getUsers(requestStr).subscribe((users) => {
           this.users = users;
         });
       });
     }
   }
 
-  getUserName(userId: number): string | undefined{
-    return this.users?.find(user => user.id = userId)?.username;
+  getUserName(userId: number): string | undefined {
+    return this.users?.find((user) => (user.id = userId))?.username;
   }
 
   handleEnterMessageClick(): void {
@@ -97,7 +93,7 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
       chat_id: this.selectedChat,
       user_id: Number(localStorage.getItem('id')),
       text: (document.getElementById('text') as HTMLInputElement).value,
-      created_at: date,
+      created_at: date
     };
     if (messageBody.text.length !== 0) {
       this.messagesService.createMessage(messageBody).subscribe(() => {

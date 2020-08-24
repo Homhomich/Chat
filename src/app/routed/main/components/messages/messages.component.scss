@@ -1,4 +1,7 @@
 .messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   grid-area: messages;
   background-color: #2d2f34;
   height: 100%;
@@ -16,13 +19,12 @@
       flex-direction: row;
       padding-bottom: 5px;
 
-      .user-name{
+      .user-name {
         margin-left: -15px;
       }
     }
 
-
-    &__text{
+    &__text {
       margin-top: 5px;
       margin-bottom: 5px;
     }
@@ -92,10 +94,8 @@
   }
 
   &__img {
-
   }
 }
-
 
 .friends {
   &__friend {
@@ -111,9 +111,7 @@
 }
 
 .messages-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   height: 100%;
   overflow-y: auto;
+  scroll-snap-type: y mandatory;
 }

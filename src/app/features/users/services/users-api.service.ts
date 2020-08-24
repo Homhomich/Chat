@@ -21,7 +21,7 @@ export class UsersApiService {
     return this.http.post<User[]>(`http://localhost:3000/users`, body);
   }
 
-  public  getUserById(id: number): Observable<User>{
+  public getUserById(id: number): Observable<User> {
     return this.http.get<User>(`http://localhost:3000/users?id=${id}`);
   }
 }
