@@ -28,12 +28,13 @@
         <div class="messages__message__text">{{ message.text }}</div>
       </div>
     </div>
+    <form onsubmit="return false" class="messages__input">
+      <i class="fa fa-fw fa-plus-circle w3-xlarge messages__input__attach"></i>
+      <input id="text" class="messages__input__text" placeholder="Введите сообщение" />
+      <button type="button" class="messages__input__btn" (click)="handleEnterMessageClick()">
+        Отправить
+      </button>
+    </form>
   </div>
-  <form onsubmit="return false" class="messages__input">
-    <i class="fa fa-fw fa-plus-circle w3-xlarge messages__input__attach"></i>
-    <input id="text" class="messages__input__text" placeholder="Введите сообщение" />
-    <button type="button" class="messages__input__btn" (click)="handleEnterMessageClick()">
-      Отправить
-    </button>
-  </form>
+
 </div>

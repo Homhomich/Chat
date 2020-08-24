@@ -1,8 +1,4 @@
 .messages {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   grid-area: messages;
   background-color: #2d2f34;
   height: 100%;
@@ -115,6 +111,9 @@
 }
 
 .messages-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   height: 100%;
   overflow-y: auto;
 }
