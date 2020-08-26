@@ -23,6 +23,7 @@ body {
 
 .messages {
   grid-area: messages;
+  overflow: auto;
 }
 
 .friends {

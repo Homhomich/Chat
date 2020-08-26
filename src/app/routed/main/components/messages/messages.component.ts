@@ -1,10 +1,14 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, AfterContentInit } from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, AfterContentInit} from '@angular/core';
 import {MessagesService} from '../../../../features/main/services/messages.service';
 import {Message} from '../../../../shared/models/message';
+import {Event} from '../../../../shared/models/event';
+
 import {UsersApiService} from '../../../../features/users/services/users-api.service';
 import {User} from '../../../../shared/models/user-model';
 import {FriendService} from '../../../../features/main/services/friend.service';
 import {ChatService} from '../../../../features/main/services/chat.service';
+import {SocketService} from '../../../../features/main/services/socket.service';
+import {HttpClient} from '@angular/common/http';
 
 interface MessageFormData {
   text: string;
@@ -16,6 +20,8 @@ interface MessageFormData {
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
+  ioConnection: any;
+
 
   messages?: Message[];
   users?: User[];
@@ -25,11 +31,13 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
   private messagesDiv = document.getElementById('messagesDiv');
 
 
-  constructor(private messagesService: MessagesService,
+  constructor(private socketService: SocketService,
+              private messagesService: MessagesService,
               private userService: UsersApiService,
               private friendService: FriendService,
               private chatService: ChatService,
-              ) {
+              private http: HttpClient
+  ) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,11 +48,44 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
   }
 
   ngOnInit(): void {
+    this.initIoConnection();
   }
+
+
+  private initIoConnection(): void {
+    this.socketService.initSocket();
+
+    this.ioConnection = this.socketService.onMessage()
+      .subscribe((message: Message) => {
+        console.log('get emit message' + message);
+        if (this.selectedChat === message.chat_id) {
+          this.messages?.push(message);
+        }
+      });
+
+    this.socketService.onEvent(Event.CONNECT)
+      .subscribe(() => {
+        console.log('connected');
+      });
+
+    this.socketService.onEvent(Event.DISCONNECT)
+      .subscribe(() => {
+        console.log('disconnected');
+      });
+  }
+
+  public sendMessage(message: Message): void {
+    if (!message) {
+      return;
+    }
+
+    this.socketService.send(message);
+  }
+
 
   ngAfterContentInit(): void {
     // @ts-ignore
-    this.messagesDiv.scrollTo(0, this.messagesDiv.scrollHeight);
+    this.messagesDiv?.scrollTo(0, this.messagesDiv.scrollHeight);
   }
 
   getMessages(): void {
@@ -52,17 +93,8 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
       this.messagesService.getMessagesByChatId(this.selectedChat).subscribe(messages => {
         this.messages = messages;
         this.messagesDiv = document.getElementById('messagesDiv');
-        console.log('messagesDiv', this.messagesDiv);
         // @ts-ignore
-        console.log('scroll 1 height', this.messagesDiv.scrollHeight);
-        // @ts-ignore
-        console.log('scroll 1', this.messagesDiv.scrollTop);
-        // @ts-ignore
-        this.messagesDiv.scrollTo(0, this.messagesDiv.scrollHeight);
-        // @ts-ignore
-        console.log('scroll 2 height', this.messagesDiv.scrollHeight);
-        // @ts-ignore
-        console.log('scroll 2', this.messagesDiv.scrollTop);
+        this.messagesDiv?.scrollTo(0, this.messagesDiv.scrollHeight);
         this.getChatMembers();
       });
     }
@@ -86,12 +118,15 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
     }
   }
 
-  getUserName(userId: number): string | undefined{
-    return this.users?.find(user => user.id = userId)?.username;
+  getUserName(userId: number): string | undefined {
+    return this.users?.find(user => {
+      if (user.id === userId) {
+        return user.username;
+      }
+    })?.username;
   }
 
   handleEnterMessageClick(): void {
-    console.log('selected_chat_before', this.selectedChat);
     const date = this.getCurrentDateAndTime();
     const messageBody = {
       chat_id: this.selectedChat,
@@ -100,9 +135,8 @@ export class MessagesComponent implements OnInit, OnChanges, AfterContentInit {
       created_at: date,
     };
     if (messageBody.text.length !== 0) {
-      this.messagesService.createMessage(messageBody).subscribe(() => {
-        console.log('selected_chat_after', this.selectedChat);
-        this.getMessages();
+      this.messagesService.createMessage(messageBody).subscribe((message) => {
+        this.sendMessage(message);
         this.messagesDiv = document.getElementById('messagesDiv');
       });
     }

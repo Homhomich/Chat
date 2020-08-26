@@ -18,8 +18,8 @@ export class MessagesService {
     return this.http.get<Message[]>(`http://localhost:3000/messages?chat_id=${id}`);
   }
 
-  createMessage(body: InputMessage): Observable<Message[]> {
-    return this.http.post<Message[]>(`http://localhost:3000/messages`, body);
+  createMessage(body: InputMessage): Observable<Message> {
+    return this.http.post<Message>(`http://localhost:3000/messages`, body);
   }
 
 }

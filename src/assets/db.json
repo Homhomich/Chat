@@ -53,46 +53,25 @@
   ],
   "messages": [
     {
-      "id": 1,
-      "chat_id": 2,
+      "chat_id": 1,
       "user_id": 1,
-      "text": "ciewjncjwencjwenc",
-      "created_at": 12.12
-    },
-    {
-      "id": 2,
-      "chat_id": 2,
-      "user_id": 1,
-      "text": "ciewjncjwencjwenc",
-      "created_at": 12.13
-    },
-    {
-      "id": 3,
-      "chat_id": 2,
-      "user_id": 1,
-      "text": "ciewjncjwencjwenc",
-      "created_at": 12.14
-    },
-    {
-      "id": 4,
-      "chat_id": 2,
-      "user_id": 1,
-      "text": "ciewjncjwencjwenc",
-      "created_at": 12.15
+      "text": "hi",
+      "created_at": "26/08/2020 15:29:30",
+      "id": 54
     },
     {
       "chat_id": 1,
       "user_id": 1,
-      "text": "fscanf",
-      "created_at": "24/08/2020 11:15:06",
-      "id": 5
+      "text": "hello",
+      "created_at": "26/08/2020 15:38:04",
+      "id": 55
     },
     {
       "chat_id": 1,
-      "user_id": 1,
-      "text": "fscanf",
-      "created_at": "24/08/2020 11:15:11",
-      "id": 6
+      "user_id": 2,
+      "text": "hihihi",
+      "created_at": "26/08/2020 15:38:22",
+      "id": 56
     }
   ],
   "friends": [
